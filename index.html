@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Конрольная работа № 3 JavaScript</title>
+</head>
+<body>
+
+	<script>
+		
+		// Циклы
+		// Задание 1
+
+		for (var i = 1; i < 8; i++) {
+			document.write("Квадрат " + i + " = " + i*i + "<br />");
+		}
+
+		// Задание 2
+
+		var i = 0;
+		while (i < 3) {
+			alert( "номер " + i + "!" );
+			i++;
+		}
+
+		// Задание 3
+
+		var students2 = ['Абаканов Сергей', 'Алалина Алина', 'Гагарин Матвей', 'Хантухова Лейла', 'Викторов Сергей', 'Масалкин Андрей', 'Петравкин Алексей', 'Московин Павел', 'Данилов Станислав'];
+		var i = 2;
+		while (i < 7) {
+			document.write(students2[i] + "<br />");
+			i++;
+		}
+
+		// Задание 4
+
+		var number
+		do {
+			number = prompt("Введите число больше 100", 0);
+		} while (number <= 100 && number != null);
+
+
+		// Конструкция switch
+		// Задание 1
+	
+		if (browser == 'IE') {
+			alert('О, да у вас IE!');
+		} else if (browser == 'Chrome' || browser == 'Firefox' || browser == 'Safari' || browser == 'Opera') {
+			alert('Да, и эти браузеры мы поддерживаем');
+		} else {
+			alert('Мы надеемся, что и в вашем браузере все ок!');
+		}
+
+		// Задание 2
+
+		var a = +prompt('a?', '');
+		switch (a) {
+			case 0:
+				alert( 0 );
+				break;
+
+			case 1:
+				alert( 1 );
+				break;
+
+			case 2:
+			case 3:
+				alert( '2,3' );
+		}
+
+
+		// Cтроки
+		// Задание 1
+
+		function line(a) {
+			return a.length;
+		}
+
+		var any = prompt("Введите любое слово", "");
+
+		var b = line(any);
+
+		document.write("Количество символов в слове, которое Вы ввели = " + b);
+
+		// Задание 2
+
+		function line(a) {
+			if (a.length > 10) {
+				var result = "Вы ввели слово, в котором больше 10 символов";
+			} else if (a.length < 10) {
+				var result = "Вы ввели слово, в котором меньше 10 символов";
+			} else {
+				var result = "Вы ввели слово, которое равно 10 символов";
+			} return result;
+		}
+
+		var any = prompt("Введите любое слово", "");
+
+		var b = line(any);
+
+		document.write( b);
+
+		// Задание 3
+
+		var question = prompt("Какой первый день недели?","");
+
+		var answer = "понедельник";
+
+		var lowAnswer = question.toLowerCase();
+
+		if (lowAnswer == answer) {
+			document.write("Ответ верный");
+		} else {
+			document.write("Ответ неверный");
+		}
+
+		// Задание 4
+
+		var mySite = "http://crispwp.com/";
+
+		function checkHttp(mySite) {
+		 
+		 var search = mySite.indexOf("http://");
+
+		 if (search == -1) {
+		 	document.write("В названии сайта не присутствует указание протокола \"http://\"");
+		 } else {
+			document.write("В названии сайта присутствует указание протокола \"http://\"");
+		 }
+
+		}
+
+		checkHttp(mySite);
+
+		// Задание 5
+
+		var myStr = "Хороший день.";
+
+		var day = myStr.slice(8, 12);
+
+		document.write(day);
+
+		// Задание 6
+
+		var students = ["Илья", "Greg", "Алина"];
+
+		for(var i = 0; i < students.length; i++) {
+		 document.write(students[i] + "<p>")
+		 for(var j = 0; j < students[i].length; j++) {
+		   if (students[i].charCodeAt(j) < 1040 || students[i].charCodeAt(j) > 1103)
+		   document.write(students[i].charAt(j) + " - это неверный символ <p>");
+		 }
+		}
+
+		// Задание 7
+
+		function truncate(str, maxlength) {
+			if (str.length > maxlength) {
+				return str.slice(0, maxlength - 3) + "...";
+			}
+		}
+
+		document.write(truncate("Результатом функции должна быть (при необходимости) усеченная строка.", 34));
+
+		// Задание 8
+		
+		function camelize(str){			
+			var wordArray = str.split('-');
+			for (var i = 0; i < wordArray.length; i++) {
+				if ( i == 0 ) continue;
+				var charArray =  wordArray[i].split("");
+				charArray[0] = wordArray[i].charAt(0).toUpperCase();
+				wordArray[i] = charArray.join("");
+			}
+			str = wordArray.join("");
+			return str;
+		}
+
+		document.write(camelize("my-short-string"));
+
+
+		// Числа
+		// Задание 1
+
+		var randSimbol = ["Молоко", 77, 11, "Мед", -88];
+
+		function number(randSimbol) {
+			for(i = 0; i < randSimbol.length; i++) {
+				if(isNaN(randSimbol[i])) {
+					document.write(randSimbol[i] + " - это не число <p>");
+				} else {
+					document.write(randSimbol[i] + " - это число <p>");
+				}
+			}
+		}
+
+		number(randSimbol);
+
+		// Задание 2
+
+		var myArray = ["100 попугаев", "201 рубль", "624 доллара", "109 кроликов", "33 весельчака", "62 кабана"];
+
+		function number(myArray) {
+			for(i = 0; i < myArray.length; i++) {
+				myArray[i] = parseInt(myArray[i])
+				document.write(myArray[i] + "<br/>");
+			}
+		}
+
+		number(myArray);
+
+		// Задание 3
+
+		//Способ 1
+
+		var a = prompt("Введите первое число", "");
+		var b = prompt("Введите второе число", "");
+
+		function sum(a, b) {
+			return parseInt(a || 0) + parseInt(b || 0);
+		}
+		
+		alert(sum(a, b));
+		
+		//Способ 2
+
+		var a = +prompt("Введите первое число", "");
+		var b = +prompt("Введите второе число", "");
+
+		alert(a + b);
+
+
+		// Задание 4
+
+		var randSimbol = [10.5, 15, 112, 77.6];
+
+		function num(randSimbol) {
+			for(i = 0; i < randSimbol.length; i++) {
+				randSimbol[i] = randSimbol[i].toFixed(2);
+				document.write(randSimbol[i] + "<br/>");
+			} 
+		}
+
+		num(randSimbol);
+
+		// Задание 5
+
+		var numberArray = [34.82, 12.90, 17.01, 78.51];
+
+		function num(numberArray,method) {
+			for(i = 0; i < numberArray.length; i++) {
+				document.write(numberArray[i] + " - исходный элемент массива <br/>")
+				numberArray[i] = Math.round(numberArray[i]);
+				document.write(numberArray[i] + "<br/>");
+			}
+		}
+
+		num(numberArray);
+
+		// Задание 6
+
+		var randomArray = new Array(10);
+
+		function three(from, to, emptyArray) {
+			for(i = 0; i < emptyArray.length; i++) {
+				emptyArray[i] = Math.floor((Math.random() * (to - from + 1)) + from);
+				document.write(emptyArray[i] + "<br>");
+			}
+			document.write("<br>" + emptyArray);
+		}
+
+		three(40, 50, randomArray);
+
+
+		// Регулярные выражения
+		// Задание 1
+
+		var forTesting = "8 пингвинов и 9 карасей.";
+
+		function firstPosition(forTesting) {
+			var regular = /\d/;
+			var result = forTesting.search(regular);
+			if (result == 0) {
+				document.write("Строка начинается с Цифры");
+			} else {
+				document.write("В начале строки НЕТ цифры"); 
+			}
+		}
+
+		firstPosition(forTesting);
+
+		// Задание 2
+
+		var card = "Иван вчера потерял свою кредитку, ее номер 1178-9087-2384-8787. Поэтому он пошел в банк и описал ситуацию. Там пошли ему навстречу и выдали новую кредитку под номером: 1103-8899-0811-1722";
+		var regular_all = /[0-9-]{19}/g;
+		var regular_select = /[0-3]{4}[0-9-]{15}/g;
+		var result_all = card.match(regular_all);
+		var result_select = card.match(regular_select);
+		document.write(result_all + " - Это все номера кредитных карт в строке <p>"); 
+		document.write(result_select + " - Номер кредитной карты, где первые четыре цифры находятся в диапазоне от 0 до 3");
+
+		// Задание 3
+
+		var tel = "8/927/31/10/765";
+		var sign = "-";
+
+		function hyphen(tel,sign) {
+			var regular = /\//g;
+			var result = tel.replace(regular,sign);
+			document.write(result);
+		}
+
+		hyphen(tel,sign);
+
+	</script>
+</body>
+</html>
